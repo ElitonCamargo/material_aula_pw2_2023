@@ -8,6 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+    <form action="" method="post">
+        <input type="text" name="filtar_cluble" placeholder="buscar">
+        <input type="submit" value="">
+    </form>
 <?php
     // $clubes =[
     //     ['nome'=>'América Mineiro'  ,'estadio'=>'Independência'],
@@ -18,12 +22,16 @@
     // var_dump($clubes);
 
     // echo "<hr>";
-
+    
+    $filtro = "";
+    if(isset($_POST['filtar_cluble'])){
+        $filtro = $_POST['filtar_cluble'];
+    }
 
     $db = new PDO("mysql:host=localhost;dbname=campeonato_futbol", 'root', '');
 
-    $db_query = $db->prepare("SELECT * FROM `clube`");
-    $db_query->execute();
+    $db_query = $db->prepare("SELECT * FROM clube WHERE nome like ?");
+    $db_query->execute(['%'.$filtro.'%']);
 
     $bd_clubes = [];
     if($db_query->rowCount()){
