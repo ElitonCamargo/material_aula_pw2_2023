@@ -12,15 +12,15 @@
 // $produtos = array_reverse($produtos);
 // var_dump($produtos);
 
-$produtos = [
-    'Amarelo'   =>'#0ff',
+$cores = [
+    'Amarelo'   =>'#fff200',
     'Vermelho'  =>'#f00',
     'Branco'    =>'#fff',
     'Verde'     =>'#0f0',
     'Preto'     =>'#000'
 ];
 
-var_dump(array_reverse($produtos));
+// var_dump(array_reverse($produtos));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +31,23 @@ var_dump(array_reverse($produtos));
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div style="background-color: red;"></div>
-        <h2></h2>
-    </div>
+    <?php
+        foreach ($cores as $nome_cor => $hex_cor) {
+            echo '
+            <div style="width: 100px; text-align: center; text-align: center;">
+                <div 
+                    style="
+                        background-color: '.$hex_cor.';
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 40px;
+                        border: solid 1px black        
+                    "></div>
+                <h2>'.$nome_cor.'</h2>
+            </div>
+            ';
+        }
+    ?>
+
 </body>
 </html>
