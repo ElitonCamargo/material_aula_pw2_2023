@@ -31,8 +31,7 @@
     $db = new PDO("mysql:host=localhost;dbname=campeonato_futbol", 'root', '');
 
     $db_query = $db->prepare("SELECT * FROM clube WHERE nome like ?");
-    $db_query->execute(['%'.$filtro.'%'
-]);
+    $db_query->execute(['%'.$filtro.'%']);
 
     $bd_clubes = [];
     if($db_query->rowCount()){
