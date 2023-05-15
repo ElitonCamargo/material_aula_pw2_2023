@@ -21,6 +21,7 @@ $cores = [
     'Laranja'   =>'#f97309'
 ];
 
+
 // var_dump(array_reverse($produtos));
 ?>
 <!DOCTYPE html>
