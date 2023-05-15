@@ -17,7 +17,8 @@ $cores = [
     'Vermelho'  =>'#f00',
     'Branco'    =>'#fff',
     'Verde'     =>'#0f0',
-    'Preto'     =>'#000'
+    'Preto'     =>'#000',
+    'Laranja'   =>'#f97309'
 ];
 
 // var_dump(array_reverse($produtos));
@@ -36,6 +37,7 @@ $cores = [
 
         cardCor('Roxo','#aa17ff');
 
+        echo '<hr>';
 
         foreach ($cores as $nome_cor => $hex_cor) {
             cardCor($nome_cor,$hex_cor);
