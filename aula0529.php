@@ -13,8 +13,18 @@
     <title>Document</title>
 </head>
 <body>
+    <form method="post">
+        <input type="text" name="consulta" placeholder="Buscar clubes">
+    </form>
     <?php
-        $db_preparado = $db->prepare('SELECT * FROM clube');
+        $consulta = '';
+        if(isset($_POST['consulta'])){
+            $consulta = $_POST['consulta'];
+        }
+        
+        $cmdSql = 'SELECT * FROM clube WHERE nome like :consulta';
+        $db_preparado = $db->prepare($cmdSql);
+        $db_preparado->bindValue('consulta','%'.$consulta.'%');
         if($db_preparado->execute()){
             if($db_preparado->rowCount() > 0){
                 $db_preparado->setFetchMode(PDO::FETCH_CLASS, 'stdClass');            
