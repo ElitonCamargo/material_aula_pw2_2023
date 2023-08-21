@@ -7,7 +7,7 @@ class BaseDeDados{
 
     public function __construct(){
         $this->servidor = 'localhost';
-        $this->baseDeDados = '';
+        $this->baseDeDados = 'galeria';
         $this->usuario = 'root';
         $this->senha = '';
     }
