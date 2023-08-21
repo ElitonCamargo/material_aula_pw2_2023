@@ -5,7 +5,7 @@ class DataBase{
     private $user = 'root';
     private $senha = '';
 
-    public function conn(){
+    public function conectar(){
         return new PDO("mysql:host=$this->host;
             dbname=$this->dbname",$this->user,$this->senha);
     }
